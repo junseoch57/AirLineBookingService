@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>사용자 상세 정보</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>사용자 상세 정보</h1>
+<div>
+    <p><strong>이름:</strong> <span th:text="${user.name}"></span></p>
+    <p><strong>이메일:</strong> <span th:text="${user.email}"></span></p>
+    <p><strong>예약 수:</strong> <span th:text="${user.bookings.size()}"></span></p>
+    <p><strong>등급:</strong> <span th:text="${user.grade}"></span></p>
+</div>
+<a th:href="@{/users/edit/{id}(id=${user.id})}">수정</a>
+<a th:href="@{/users}">목록으로 돌아가기</a>
+</body>
+</html>

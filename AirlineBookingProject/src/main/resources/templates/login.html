@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>로그인 - AirScanner</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>AirScanner</h1>
+        <nav>
+            <ul>
+                <li><a href="/">홈</a></li>
+                <li><a href="/flight-search">항공권 검색</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>로그인</h2>
+        <form th:action="@{/login}" method="post">
+            <label for="email">이메일:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">비밀번호:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">로그인</button>
+        </form>
+        <div th:if="${error}" th:text="${error}"></div>
+    </main>
+</div>
+</body>
+</html>
+

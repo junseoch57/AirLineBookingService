@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AirScanner</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>AirScanner</h1>
+        <nav>
+            <ul>
+                <li><a href="/flight-search">항공권 검색</a></li>
+                <li th:if="${session.user != null}"><a href="/bookings">예약 확인</a></li>
+                <li th:if="${session.user != null}"><a href="/users">사용자 관리</a></li>
+                <li th:if="${session.user == null}"><a href="/login">로그인</a></li>
+                <li th:if="${session.user != null}"><a href="/login/logout">로그아웃</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Welcome to AirScanner!</h2>
+        <div th:if="${message}">
+            <p th:text="${message}"></p>
+        </div>
+        <form th:action="@{/flight-search}" method="get">
+            <label for="departureDate">가는날:</label>
+            <input type="date" id="departureDate" name="departureDate" required>
+            <label for="returnDate">오는날:</label>
+            <input type="date" id="returnDate" name="returnDate" required>
+            <label for="passengers">인원수:</label>
+            <input type="number" id="passengers" name="passengers" required min="1">
+            <label for="destination">목적지:</label>
+            <input type="text" id="destination" name="destination" required>
+            <button type="submit">검색</button>
+        </form>
+    </main>
+</div>
+</body>
+</html>

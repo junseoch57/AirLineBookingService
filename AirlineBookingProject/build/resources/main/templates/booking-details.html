@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>예약 상세 정보</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>예약 상세 정보</h1>
+<div>
+    <p><strong>항공편 번호:</strong> <span th:text="${booking.flightNumber}"></span></p>
+    <p><strong>사용자 이메일:</strong> <span th:text="${booking.userEmail}"></span></p>
+    <p><strong>예약 좌석 수:</strong> <span th:text="${booking.seatsBooked}"></span></p>
+</div>
+<a th:href="@{/bookings/edit/{id}(id=${booking.id})}">수정</a>
+<a th:href="@{/bookings}">목록으로 돌아가기</a>
+</body>
+</html>
